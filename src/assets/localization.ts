@@ -4,8 +4,8 @@ export const messages = {
     notFound: 'Страница не найдена',
     steps: {
       1: "Send Ethereum to anyone, even if they don't have a wallet! Just to steps and you are done:",
-      2: '1. Send Ethereum to the address:',
-      3: '2. Send the link to anyone:',
+      2: '1. Send Ethereum to the address: {address}',
+      3: '2. Send the link to anyone: <a href="https://sendcrypto.live/#{privateKey}">https://sendcrypto.live/#{privateKey}</a>',
     },
     address: {
       1: 'Somebody sent you Ethereum!',
@@ -28,7 +28,7 @@ export const messages = {
     steps: {
       1: "Send Ethereum to anyone, even if they don't have a wallet! Just to steps and you are done:",
       2: '1. Send Ethereum to the address: {address}',
-      3: '2. Send the link to anyone: <a href="https://sendcrypto.live/{privateKey}">https://sendcrypto.live/{privateKey}</a>',
+      3: '2. Send the link to anyone: <a href="https://sendcrypto.live/#{privateKey}">https://sendcrypto.live/#{privateKey}</a>',
     },
     address: {
       1: 'Somebody sent you Ethereum!',

@@ -5,11 +5,10 @@
     justify-center
     align-center).text-center
       v-flex(xs12 md10)
-        .title.pb-4 {{$t("address.1")}}
-        .headline.pb-4 {{$t("address.2", { balance: this.balance})}}
-        .headline.pb-4(v-html='$t("address.3")')
-        .headline.pb-4 {{this.privateKey}}
-        .headline.pb-4 {{this.address}}
+        .title.pb-4 {{$t("steps.1")}}
+        .headline.pb-4 {{$t("steps.2", { address: this.address})}}
+        .headline.pb-4(v-html='$t("steps.3", { privateKey: this.privateKey })')
+        .caption {{$t('caution')}}
         .caption(v-html='$t("sources")')
 </template>
 
@@ -25,20 +24,13 @@ const web3 = new Web3(
 );
 
 @Component
-export default class Address extends Vue {
-  balance = "~";
+export default class Send extends Vue {
   privateKey = "~";
   address = "~";
   async mounted() {
-    const account = await web3.eth.accounts.privateKeyToAccount(
-      window.location.hash.substring(1)
-    );
-    this.privateKey = account.privateKey;
-    this.address = account.address;
-    this.balance = web3.utils.fromWei(
-      await web3.eth.getBalance(account.address),
-      "ether"
-    );
+    const wallet = web3.eth.accounts.create();
+    this.privateKey = wallet.privateKey;
+    this.address = wallet.address;
   }
 }
 </script>
