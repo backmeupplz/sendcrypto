@@ -8,7 +8,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { i18n } from "../plugins/i18n";
 import * as store from "../plugins/store";
 
 @Component
@@ -23,12 +22,7 @@ export default class Snackbar extends Vue {
     return store.snackbar().color;
   }
   get text() {
-    const msg = store.snackbar().message;
-    return typeof msg === "string"
-      ? msg === "Internal Server Error"
-        ? i18n.t("errors.internal")
-        : i18n.t(store.snackbar().message.toString())
-      : (msg as any)[i18n.locale];
+    return store.snackbar().message;
   }
 }
 </script>

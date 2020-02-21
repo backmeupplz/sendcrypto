@@ -5,20 +5,38 @@
     justify-center
     align-center).text-center
       v-flex(xs12 md10)
-        .headline.pb-4
-          span(v-html='$t("home.info")')
-      v-flex.pt-4
-        .caption
-          router-link(to='/privacy') {{ $t('home.privacy') }}
+        .title.pb-4 {{$t("steps.1")}}
+        .headline.pb-4 {{$t("steps.2", { address: this.address})}}
+        .headline.pb-4(v-html='$t("steps.3", { privateKey: this.privateKey })')
+        .caption {{$t('caution')}}
+        .caption(v-html='$t("sources")')
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import axios from "axios";
-import * as store from "../plugins/store";
-import Component from "vue-class-component";
-import { i18n } from "../plugins/i18n";
+import Vue from 'vue'
+import axios from 'axios'
+import * as store from '../plugins/store'
+import Component from 'vue-class-component'
+import { i18n } from '../plugins/i18n'
+import Web3 from 'web3'
+const web3 = new Web3(
+  'https://mainnet.infura.io/v3/dd80994b42d540daa7c17d01bfbacd6d'
+)
 
 @Component
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  privateKey = '~'
+  address = '~'
+  async mounted() {
+    const wallet = web3.eth.accounts.create()
+    this.privateKey = wallet.privateKey
+    this.address = wallet.address
+  }
+}
 </script>
+
+<style scoped>
+.headline {
+  word-wrap: break-word;
+}
+</style>

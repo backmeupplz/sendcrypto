@@ -1,8 +1,8 @@
 <template lang="pug">
   v-app(:dark='$store.state.dark' :class='$store.state.dark ? "grey darken-4" : "grey lighten-4"')
     cookie-law(theme='blood-orange'
-    :buttonText='$t("cookieButton")'
-    :message='$t("cookieMessage")')
+    :buttonText='$t("cookie.button")'
+    :message='$t("cookie.message")')
     Navbar
     Snackbar
     v-content

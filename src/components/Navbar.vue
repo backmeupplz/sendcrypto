@@ -6,8 +6,8 @@
         span {{$t('title')}}
       v-spacer
       // Dark mode
-      v-btn(text icon color='grey' @click='toggleMode')
-        v-icon(small) brightness_2
+      //- v-btn(text icon color='grey' @click='toggleMode')
+      //-   v-icon(small) brightness_2
       // Language picker
       v-menu(offset-y)
         template(v-slot:activator='{ on }')
@@ -46,7 +46,7 @@ export default class Navbar extends Vue {
   changeLanguage(locale: string) {
     i18n.locale = locale;
     store.setLanguage(locale);
-    document.title = i18n.t("strippedTitle") as string;
+    document.title = i18n.t("title") as string;
   }
 }
 </script>
