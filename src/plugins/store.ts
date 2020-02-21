@@ -1,13 +1,11 @@
 // Dependencies
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { User } from '../models/user'
 import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
 export interface State {
-  user?: User
   snackbar: SnackbarState
   language?: String
   dark: Boolean
@@ -26,7 +24,6 @@ interface SnackbarState {
 
 const storeOptions = {
   state: {
-    user: undefined,
     snackbar: {
       message: '',
       active: false,
@@ -36,12 +33,6 @@ const storeOptions = {
     dark: false,
   },
   mutations: {
-    setUser(state: State, user: User) {
-      state.user = user
-    },
-    logout(state: State) {
-      state.user = undefined
-    },
     setSnackbar(state: State, snackbar: SnackbarState) {
       state.snackbar = snackbar
     },
@@ -53,7 +44,6 @@ const storeOptions = {
     },
   },
   getters: {
-    user: (state: State) => state.user,
     snackbar: (state: State) => state.snackbar,
     language: (state: State) => state.language,
     dark: (state: State) => state.dark,
@@ -66,15 +56,11 @@ export const store = new Vuex.Store<State>(storeOptions)
 // Getters
 const getters = store.getters
 
-export const user = () => getters.user as User | undefined
 export const snackbar = () => getters.snackbar as SnackbarState
 export const language = () => getters.language as string | undefined
 export const dark = () => getters.dark as boolean
 
 // Mutations
-export const setUser = (user: User) => {
-  store.commit('setUser', user)
-}
 export const setSnackbar = (snackbar: SnackbarState) => {
   store.commit('setSnackbar', snackbar)
 }

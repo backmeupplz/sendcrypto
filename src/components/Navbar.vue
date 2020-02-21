@@ -22,12 +22,14 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import * as store from "../plugins/store";
 import { i18n } from "../plugins/i18n";
-import * as api from "../utils/api";
 
 @Component
 export default class Navbar extends Vue {
   get locales() {
-    return [{ icon: "🇺🇸", code: "en" }, { icon: "🇷🇺", code: "ru" }];
+    return [
+      { icon: "🇺🇸", code: "en" },
+      { icon: "🇷🇺", code: "ru" }
+    ];
   }
   get currentLocale() {
     for (const locale of this.locales) {
