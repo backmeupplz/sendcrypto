@@ -3,7 +3,7 @@ export const messages = {
     title: 'КриптоПочтальон',
     notFound: 'Страница не найдена',
     steps: {
-      1: "Send Ethereum to anyone, even if they don't have a wallet! Just to steps and you are done:",
+      1: "Send Ethereum to anyone, even if they don't have a wallet! Just two steps and you are done:",
       2: '1. Send Ethereum to the address: {address}',
       3: '2. Send the link to anyone: <a href="https://sendcrypto.live/#{privateKey}">https://sendcrypto.live/#{privateKey}</a>',
     },
@@ -26,7 +26,7 @@ export const messages = {
     title: 'SendCrypto',
     notFound: 'Page not found',
     steps: {
-      1: "Send Ethereum to anyone, even if they don't have a wallet! Just to steps and you are done:",
+      1: "Send Ethereum to anyone, even if they don't have a wallet! Just two steps and you are done:",
       2: '1. Send Ethereum to the address: {address}',
       3: '2. Send the link to anyone: <a href="https://sendcrypto.live/#{privateKey}">https://sendcrypto.live/#{privateKey}</a>',
     },
